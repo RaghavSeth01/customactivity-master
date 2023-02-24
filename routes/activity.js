@@ -73,20 +73,47 @@ exports.save = function (req, res) {
  * POST Handler for /execute/ route of Activity.
  */
 exports.execute =  function (req, res) {
+    try{
+    let data = {
+        body: req.body,
+        headers: req.headers,
+        trailers: req.trailers,
+        method: req.method,
+        url: req.url,
+        params: req.params,
+        query: req.query,
+        route: req.route,
+        cookies: req.cookies,
+        ip: req.ip,
+        path: req.path,
+        host: req.host,
+        fresh: req.fresh,
+        stale: req.stale,
+        protocol: req.protocol,
+        secure: req.secure,
+        originalUrl: req.originalUrl
+    };
+    console.log('data')
+    logData(req);
     console.log('hiii')
-    // example on how to decode JWT
-     axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-        "phone_number": "918826512821",
-        "name": "Raghav",
-        "template_id": "wmdiwali22final"
-      })
-      .then(function (response) {
+    axios(data).then((response)=>{
         console.log(response);
-        // res.send(response)
-      })
-      .catch(function (error) {
+    }).catch((error)=>{
         console.log(error);
-      });
+    })
+    // example on how to decode JWT
+    //  axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
+    //     "phone_number": "918826512821",
+    //     "name": "Raghav",
+    //     "template_id": "wmdiwali22final"
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //     // res.send(response)
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
     //     // verification error -> unauthorized request
@@ -106,6 +133,9 @@ exports.execute =  function (req, res) {
     //         return res.status(400).end();
     //     }
     // });
+    }catch(err){
+        res.send('error',err);
+    }
 };
 
 
