@@ -21,7 +21,7 @@
             {"template_id":"{{Contact.Attribute.whatsapp_activity.TemplateId}}"}									
 			],
           "outArguments": [],
-          "url": "https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback",
+          "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/execute",
            "verb": "POST",
             "body": "",
             "header": "",
@@ -33,7 +33,7 @@
     "configurationArguments": {
       "applicationExtensionKey": "2538eccc-ea13-4f09-826a-c66087eb3827",
       "save": {
-        "url": "https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback",
+        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/save",
           "verb": "POST",
         "useJwt": false
        },
