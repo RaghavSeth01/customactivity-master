@@ -74,46 +74,54 @@ exports.save = function (req, res) {
 exports.execute =  function (req, res) {
     try{
         console.log('test123');
+        let body = {
+            "phone_number": "918826512821",
+            "name": "Raghav",
+            "template_id": "wmdiwali22final"
+          };
     let data = {
-        body: req.body,
-        headers: req.headers,
-        trailers: req.trailers,
-        method: req.method,
-        url: req.url,
-        params: req.params,
-        query: req.query,
+        body: body,
+        method: 'POST',
+        url: 'https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
         route: req.route,
         cookies: req.cookies,
-        ip: req.ip,
+        ip: '13.228.225.19',
         path: req.path,
-        host: req.host,
-        fresh: req.fresh,
-        stale: req.stale,
-        protocol: req.protocol,
-        secure: req.secure,
-        originalUrl: req.originalUrl
+        host: 'localhost:3000',
     };
     console.log('data')
     logData(req);
     console.log('hiii')
-    axios(data).then((response)=>{
-        console.log(response);
-    }).catch((error)=>{
-        console.log(error);
-    })
-    // example on how to decode JWT
-    //  axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-    //     "phone_number": "918826512821",
-    //     "name": "Raghav",
-    //     "template_id": "wmdiwali22final"
-    //   })
-    //   .then(function (response) {
+    // axios(data).then((response)=>{
     //     console.log(response);
-    //     // res.send(response)
-    //   })
-    //   .catch(function (error) {
+    // }).catch((error)=>{
     //     console.log(error);
-    //   });
+    // })
+    
+    // example on how to decode JWT
+
+    let config = {
+        headers: {
+            route: req.route,
+            cookies: req.cookies,
+            ip: req.ip,
+            path: req.path,
+            host: req.host,
+        }
+      }
+console.log('config', config);
+     axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
+        "phone_number": "918826512821",
+        "name": "Raghav",
+        "template_id": "wmdiwali22final"
+      },config)
+      .then(function (response) {
+        console.log(response);
+        // res.send(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
     //     // verification error -> unauthorized request
