@@ -122,6 +122,7 @@ console.log('config', config);
       .catch(function (error) {
         console.log(error);
       });
+      return res.status(200).send('success');
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
     //     // verification error -> unauthorized request
