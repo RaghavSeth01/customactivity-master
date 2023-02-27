@@ -74,6 +74,7 @@ exports.save = function (req, res) {
  */
 exports.execute =  function (req, res) {
     try{
+        console.log('test123');
     let data = {
         body: req.body,
         headers: req.headers,
@@ -96,24 +97,24 @@ exports.execute =  function (req, res) {
     console.log('data')
     logData(req);
     console.log('hiii')
-   /* axios(data).then((response)=>{
+    axios(data).then((response)=>{
         console.log(response);
     }).catch((error)=>{
         console.log(error);
-    })*/
+    })
     // example on how to decode JWT
-      axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-         "phone_number": "918826512821",
-         "name": "Raghav",
-         "template_id": "wmdiwali22final"
-       })
-       .then(function (response) {
-         console.log(response);
-         // res.send(response)
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
+    //  axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
+    //     "phone_number": "918826512821",
+    //     "name": "Raghav",
+    //     "template_id": "wmdiwali22final"
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //     // res.send(response)
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
     // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
     //     // verification error -> unauthorized request
