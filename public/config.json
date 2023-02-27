@@ -38,17 +38,17 @@
         "useJwt": false
        },
        "publish": {
-        "url": "https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback",
+        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/publish",
            "verb": "POST",
            "useJwt": false
        },
       "stop": {
-        "url": "https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback",
+        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/stop",
            "verb": "POST",
            "useJwt": false
       },
       "validate": {
-        "url": "https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback",
+        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/validate",
         "verb": "POST",
         "useJwt": false
       }
