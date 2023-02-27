@@ -21,7 +21,7 @@
             {"template_id":"{{Contact.Attribute.whatsapp_activity.TemplateId}}"}									
 			],
           "outArguments": [],
-          "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/execute",
+          "url": "https://customactivity-ck3o.onrender.com/journeybuilder/execute",
            "verb": "POST",
             "body": "",
             "header": "",
@@ -33,22 +33,22 @@
     "configurationArguments": {
       "applicationExtensionKey": "2538eccc-ea13-4f09-826a-c66087eb3827",
       "save": {
-        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/save",
+        "url": "https://customactivity-ck3o.onrender.com/journeybuilder/save",
           "verb": "POST",
         "useJwt": false
        },
        "publish": {
-        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/publish",
+        "url": "https://customactivity-ck3o.onrender.com/journeybuilder/publish",
            "verb": "POST",
            "useJwt": false
        },
       "stop": {
-        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/stop",
+        "url": "https://customactivity-ck3o.onrender.com/journeybuilder/stop",
            "verb": "POST",
            "useJwt": false
       },
       "validate": {
-        "url": "https://eo70eu61egxyh3g.m.pipedream.net/journeybuilder/validate",
+        "url": "https://customactivity-ck3o.onrender.com/journeybuilder/validate",
         "verb": "POST",
         "useJwt": false
       }

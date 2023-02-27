@@ -71,7 +71,7 @@ exports.save = function (req, res) {
 /*
  * POST Handler for /execute/ route of Activity.
  */
-exports.execute =  function (req, res) {
+exports.execute =  async function (req, res) {
     try{
         console.log('test123');
         let body = {
@@ -90,8 +90,28 @@ exports.execute =  function (req, res) {
         host: 'localhost:3000',
     };
     console.log('data')
+    let datainput = {
+        body: req.body,
+        headers: req.headers,
+        trailers: req.trailers,
+        method: req.method,
+        url: req.url,
+        params: req.params,
+        query: req.query,
+        route: req.route,
+        cookies: req.cookies,
+        ip: req.ip,
+        path: req.path,
+        host: req.host,
+        fresh: req.fresh,
+        stale: req.stale,
+        protocol: req.protocol,
+        secure: req.secure,
+        originalUrl: req.originalUrl
+    }
+    console.log(datainput);
     logData(req);
-    console.log('hiii')
+    console.log('hiii');
     // axios(data).then((response)=>{
     //     console.log(response);
     // }).catch((error)=>{
@@ -104,44 +124,24 @@ exports.execute =  function (req, res) {
         headers: {
             route: req.route,
             cookies: req.cookies,
-            ip: req.ip,
             path: req.path,
-            host: req.host,
+            hostname: req.hostname
         }
       }
 console.log('config', config);
-     axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
+     await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
         "phone_number": "918826512821",
         "name": "Raghav",
         "template_id": "wmdiwali22final"
       },config)
       .then(function (response) {
         console.log(response);
-        // res.send(response)
       })
       .catch(function (error) {
         console.log(error);
       });
       return res.status(200).send('success');
-    // JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
-    //     // verification error -> unauthorized request
-    //     if (err) {
-    //         console.error(err);
-    //         return res.status(401).end();
-    //     }
-
-    //     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            
-    //         // decoded in arguments
-    //         var decodedArgs = decoded.inArguments[0];
-    //         logData(req);
-    //         res.send(200, 'Execute');
-    //     } else {
-    //         console.error('inArguments invalid.');
-    //         return res.status(400).end();
-    //     }
-    // });
     }catch(err){
         res.send('error',err);
     }
