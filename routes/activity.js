@@ -87,6 +87,10 @@ exports.execute =  async function (req, res) {
         "phone_number": "919996291540",
         "name": "Raghav",
         "template_id": "wmdiwali22final"
+      },{
+        headers: {
+            Host: 'https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/'
+        }
       })
       .then(function (response) {
         data = response;
