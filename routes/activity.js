@@ -88,8 +88,11 @@ exports.execute =  async function (req, res) {
         "name": "Raghav",
         "template_id": "wmdiwali22final"
       },{
+        host: '<PROXY_HOST>',
+        port: '<PROXY_PORT>',
+        path: 'https://appiyo.karix.solutions',
         headers: {
-            Host: 'https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/'
+            Host: 'https://appiyo.karix.solutions'
         }
       })
       .then(function (response) {
