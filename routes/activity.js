@@ -84,7 +84,7 @@ exports.execute =  async function (req, res) {
      console.log('config', config);
      let data;
      await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-        "phone_number": "918826512821",
+        "phone_number": "919996291540",
         "name": "Raghav",
         "template_id": "wmdiwali22final"
       })
