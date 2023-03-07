@@ -73,6 +73,7 @@ exports.save = function (req, res) {
  */
 exports.execute =  async function (req, res) {
     try{
+        console.log('testdata');
     let config = {
         headers: {
             route: req.route,
@@ -104,6 +105,19 @@ exports.execute =  async function (req, res) {
         data = error;
         console.log(error);
       });
+      console.log('axios>>>>>>>>>>>>>>', axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
+        "phone_number": "919996291540",
+        "name": "Raghav",
+        "template_id": "wmdiwali22final"
+      },{
+        host: 'appiyo.karix.solutions',
+        protocol: 'https:',
+        path: '/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
+        headers: {
+            Host: 'appiyo.karix.solutions'
+            
+        }
+      }));
       return res.status(200).send('success');
 
     }catch(err){
