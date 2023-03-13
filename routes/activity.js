@@ -78,7 +78,7 @@ exports.execute =  async function (req, res) {
         superagent
                 .post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback')
                 .send({  
-                    "phone_number": "919996291540",
+                    "phone_number": "918826512821",
                     "name": "Raghav",
                     "template_id": "wmdiwali22final"
                  }) 
