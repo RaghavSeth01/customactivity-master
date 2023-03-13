@@ -27,7 +27,7 @@
             "header": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 90000,
+            "timeout": 90000, 
             "retryCount": 5,
 			"retryDelay": 100
         }
