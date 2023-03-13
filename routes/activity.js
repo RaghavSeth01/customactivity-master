@@ -1,7 +1,7 @@
 'use strict';
 var util = require('util');
 const axios = require('axios')
-
+const superagent = require('superagent');
 const Path = require('path');
 //const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var util = require('util');
@@ -74,6 +74,25 @@ exports.save = function (req, res) {
 exports.execute =  async function (req, res) {
     try{
         console.log('testdata');
+       await superagent
+                .post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback')
+                .send({  
+                    "phone_number": "919996291540",
+                    "name": "Raghav",
+                    "template_id": "wmdiwali22final"
+                 }) 
+                .set({
+                    'Host': 'appiyo.karix.solutions',
+                            'Content-Type': 'application/json;charset=UTF-8',
+                            "Access-Control-Allow-Origin": "*",
+                            "Connection": "close"
+                })
+                .end((err, res) => {
+                    console.log('res',res);
+                    console.log('err',err);
+                    // Calling the end function will send the request
+                });
+
     let config = {
         headers: {
             route: req.route,
@@ -84,30 +103,30 @@ exports.execute =  async function (req, res) {
       }
      console.log('config', config);
      let data;
-     await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-        "phone_number": "919996291540",
-        "name": "Raghav",
-        "template_id": "wmdiwali22final"
-      },{
-        host: 'appiyo.karix.solutions',
-        protocol: 'https:',
-        path: '/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
-        headers: {
-            'Host': 'appiyo.karix.solutions',
-            'Content-Type': 'application/json;charset=UTF-8',
-            "Access-Control-Allow-Origin": "*",
-   
-        }
-      })
-      .then(function (response) {
-        data = response;
-        console.log(response);
-      })
-      .catch(function (error) {
-        data = error;
-        console.log(error);
-      });
-      console.log('axios>>>>>>>>>>>>>>',axios);
+    //  await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback', {
+    //     "phone_number": "919996291540",
+    //     "name": "Raghav",
+    //     "template_id": "wmdiwali22final"
+    //   },{
+    //     host: 'appiyo.karix.solutions',
+    //     protocol: 'https:',
+    //     path: '/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
+    //     headers: {
+    //         'Host': 'appiyo.karix.solutions',
+    //         'Content-Type': 'application/json;charset=UTF-8',
+    //         "Access-Control-Allow-Origin": "*",
+    //         "Connection": "close"
+    //     }
+    //   })
+    //   .then(function (response) {
+    //     data = response;
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     data = error;
+    //     console.log(error);
+    //   });
+    //   console.log('axios>>>>>>>>>>>>>>',axios);
       return res.status(200).send('success');
 
     }catch(err){
