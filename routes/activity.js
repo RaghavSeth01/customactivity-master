@@ -74,7 +74,8 @@ exports.save = function (req, res) {
 exports.execute =  async function (req, res) {
     try{
         console.log('testdata');
-       await superagent
+        let data = '';
+        superagent
                 .post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback')
                 .send({  
                     "phone_number": "919996291540",
@@ -88,11 +89,12 @@ exports.execute =  async function (req, res) {
                             "Connection": "close"
                 })
                 .end((err, res) => {
+                    data = res;
                     console.log('res',res);
                     console.log('err',err);
                     // Calling the end function will send the request
                 });
-
+console.log('test',data)
     let config = {
         headers: {
             route: req.route,
@@ -102,7 +104,7 @@ exports.execute =  async function (req, res) {
         }
       }
      console.log('config', config);
-     let data;
+ //    let data;
     //  await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback', {
     //     "phone_number": "919996291540",
     //     "name": "Raghav",
