@@ -27,7 +27,9 @@
             "header": "",
             "format": "json",
             "useJwt": false,
-            "timeout": 10000
+            "timeout": 90000, 
+            "retryCount": 5,
+			"retryDelay": 100
         }
     },
     "configurationArguments": {
