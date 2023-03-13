@@ -73,53 +73,7 @@ exports.save = function (req, res) {
  */
 exports.execute =  async function (req, res) {
     try{
-        console.log('test123');
-        let body = {
-            "phone_number": "918826512821",
-            "name": "Raghav",
-            "template_id": "wmdiwali22final"
-          };
-    let data = {
-        body: body,
-        method: 'POST',
-        url: 'https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
-        route: req.route,
-        cookies: req.cookies,
-        ip: '13.228.225.19',
-        path: req.path,
-        host: 'localhost:3000',
-    };
-    console.log('data')
-    let datainput = {
-        body: req.body,
-        headers: req.headers,
-        trailers: req.trailers,
-        method: req.method,
-        url: req.url,
-        params: req.params,
-        query: req.query,
-        route: req.route,
-        cookies: req.cookies,
-        ip: req.ip,
-        path: req.path,
-        host: req.host,
-        fresh: req.fresh,
-        stale: req.stale,
-        protocol: req.protocol,
-        secure: req.secure,
-        originalUrl: req.originalUrl
-    }
-    console.log(datainput);
-    logData(req);
-    console.log('hiii');
-    // axios(data).then((response)=>{
-    //     console.log(response);
-    // }).catch((error)=>{
-    //     console.log(error);
-    // })
-    
-    // example on how to decode JWT
-
+        console.log('testdata');
     let config = {
         headers: {
             route: req.route,
@@ -128,18 +82,32 @@ exports.execute =  async function (req, res) {
             hostname: req.hostname
         }
       }
-console.log('config', config);
+     console.log('config', config);
+     let data;
      await axios.post('https://appiyo.karix.solutions/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/', {
-        "phone_number": "918826512821",
+        "phone_number": "919996291540",
         "name": "Raghav",
         "template_id": "wmdiwali22final"
-      },config)
+      },{
+        host: 'appiyo.karix.solutions',
+        protocol: 'https:',
+        path: '/appiyo/callbacks/api/63aad24b78cdd0fb70bc9cb1/panasonic_callback/',
+        headers: {
+            'Host': 'appiyo.karix.solutions',
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+   
+        }
+      })
       .then(function (response) {
+        data = response;
         console.log(response);
       })
       .catch(function (error) {
+        data = error;
         console.log(error);
       });
+      console.log('axios>>>>>>>>>>>>>>',axios);
       return res.status(200).send('success');
 
     }catch(err){
